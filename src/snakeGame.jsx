@@ -48,7 +48,7 @@ function SnakeGame() {
       for (const segment of snake) ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
       ctx.fillStyle = "red";
       ctx.fillRect(apple.x * gridSize, apple.y * gridSize, gridSize, gridSize);
-      ctx.fillStyle = "black";
+      ctx.fillStyle = "white";
       ctx.fillText("Score: " + score, 10, 10);
     }
 
