@@ -32,6 +32,21 @@ body {
   color: var(--accent);
 }
 
+.logo-link {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.logo-link:visited {
+  color: var(--accent);
+}
+
+.logo-link:hover {
+  color: var(--text);
+}
+
 .navbar .tabs a {
   /* gap for tabs */
   margin-left: 3rem;
@@ -166,3 +181,19 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
 }
+
+/* Make game card links look like normal cards, not links */
+.game-card-link {
+  text-decoration: none; /* remove underline */
+  color: inherit;        /* inherit the card’s text color */
+  display: block;        /* make sure the link fills the card */
+}
+
+.game-card-link:visited {
+  color: inherit;
+}
+
+.game-card-link:hover {
+  color: inherit;
+}
+
