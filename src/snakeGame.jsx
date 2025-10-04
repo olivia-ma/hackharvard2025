@@ -88,7 +88,7 @@ function SnakeGame() {
         ref={canvasRef}
         width="400"
         height="400"
-        style={{ border: "1px solid black" }}
+        style={{ border: "1px solid white" }}
         tabIndex="0"
         onClick={(e) => e.currentTarget.focus()}
       />
