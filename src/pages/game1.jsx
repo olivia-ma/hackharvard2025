@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./GamePage.css";
 
 export default function Game1() {
@@ -7,6 +7,8 @@ export default function Game1() {
     { action: "Blink Both Eyes", key: "Space" },
     { action: "Blink Left Eye", key: "ArrowLeft" },
   ]);
+
+   const [listeningIndex, setListeningIndex] = useState(null); // track which input is listening
 
   const eegActions = [
     "Blink Both Eyes",
@@ -31,6 +33,27 @@ export default function Game1() {
     setBindings(newBindings);
   };
 
+  // used to wait for key press
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (listeningIndex !== null) {
+        e.preventDefault();
+        const newBindings = [...bindings];
+        newBindings[listeningIndex].key = e.key;
+        setBindings(newBindings);
+        setListeningIndex(null); // stop listening after first key
+      }
+    };
+
+    if (listeningIndex !== null) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [listeningIndex, bindings]);
+
+  
   return (
     <div className="game-page">
       {/* Top bar */}
@@ -75,11 +98,13 @@ export default function Game1() {
 
                 <input
                   type="text"
-                  placeholder="Keyboard key..."
-                  value={binding.key}
-                  onChange={(e) =>
-                    handleBindingChange(idx, "key", e.target.value)
+                  value={
+                    listeningIndex === idx
+                      ? "Press any key..."
+                      : binding.key || ""
                   }
+                  onFocus={() => setListeningIndex(idx)} // 👈 start listening
+                  readOnly
                 />
 
                 <button
