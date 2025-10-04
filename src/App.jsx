@@ -70,7 +70,7 @@ function GamesSection() {
           >
             <div className="game-card">
               <div className="game-thumbnail">Thumbnail</div>
-              <div className="game-title">{game.title}</div>
+              <div className="game-thumbnail-title">{game.title}</div>
             </div>
           </Link>
         ))}
