@@ -6,7 +6,7 @@ import Game2 from "./pages/Game2";
 import Game3 from "./pages/Game3";
 import Game4 from "./pages/Game4";
 import LoginPage from "./pages/LoginPage";
-
+import SnakeGame from "./snakeGame";
 
 
 function Navbar() {
@@ -29,6 +29,11 @@ function Navbar() {
             <Link to="/games/Game2">Game 2</Link>
             <Link to="/games/Game3">Game 3</Link>
             <Link to="/games/Game4">Game 4</Link>
+            <Link to="/snake">Snake</Link>
+            <Link to="/flappy">Flappy Bird</Link>
+            <Link to="/dino">Dino</Link>
+            <Link to="/breakout">Breakout</Link>
+            <Link to="/pong">Pong</Link>
             {/* <a href="#">game 1</a>
             <a href="#">game 2</a>
             <a href="#">game 3</a>
@@ -68,6 +73,11 @@ function GamesSection() {
     { title: "game 2", path: "/games/Game2" },
     { title: "game 3", path: "/games/Game3" },
     { title: "game 4", path: "/games/Game4" },
+    { title: "Snake", path: "/snake" },
+    { title: "Flappy Bird", path: "/flappy" },
+    { title: "Dino", path: "/dino" },
+    { title: "Breakout", path: "/breakout" },
+    { title: "Pong", path: "/pong" },
   ];
 
   return (
@@ -109,8 +119,81 @@ export default function App() {
         <Route path="/games/Game2" element={<Game2/>} />
         <Route path="/games/Game3" element={<Game3/>} />
         <Route path="/games/Game4" element={<Game4/>} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/flappy" element={<Flappy />} />
+        <Route path="/dino" element={<Dino />} />
+        <Route path="/breakout" element={<Breakout />} />
+        <Route path="/pong" element={<Pong />} />
+        <Route path="/snake" element={<Snake />} />
       </Routes>
+    </div>
+  );
+}
+
+function Snake() {
+  return ( 
+    <div>
+      <h2>Snake</h2>
+      <SnakeGame />
+    </div>
+  );
+}
+
+function Flappy() {
+  return ( 
+    <div>
+      <h2>Play Flappy Bird</h2>
+      <iframe
+        src="/JS-Flappy-Bird/index.html"
+        width="100%"
+        height="600"
+        style={{ border: "none" }}
+        title="Flappy Bird"
+      ></iframe>
+    </div>
+  );
+}
+
+function Dino() {
+  return ( 
+    <div>
+      <h2>Play Dino</h2>
+      <iframe
+        src="/t-rex-runner/index.html"
+        width="1200"
+        height="500"
+        style={{ border: "none" }}
+        title="Dino Runner"
+      ></iframe>
+    </div>
+  );
+}
+
+function Breakout() {
+  return ( 
+    <div>
+      <h2>Breakout</h2>
+      <iframe
+        src="/breakout/breakout/index.html"
+        width="100%"
+        height="1000"
+        style={{ border: "none" }}
+        title="Breakout Game"
+      ></iframe>
+    </div>
+  );
+}
+
+function Pong() {
+  return ( 
+    <div>
+      <h2>Pong</h2>
+      <iframe
+        src="/pong-js/index.html"
+        width="80%"
+        height="600"
+        style={{ border: "none" }}
+        title="Pong Game"
+      ></iframe>
     </div>
   );
 }
