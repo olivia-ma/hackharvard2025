@@ -1,68 +1,199 @@
+/* styles.css */
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  --background: #0f0f0f;
+  --accent: #00FFD1;
+  --text: #ffffff;
+  --card: #1a1a1a;
+  --hover: #222222;
+  --font-main: 'Inter', sans-serif;
 }
 
 body {
   margin: 0;
+  font-family: var(--font-main);
+  background: var(--background);
+  color: var(--text);
+}
+
+/* Navbar */
+.navbar {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+  background: black;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--accent);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.logo-link {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.logo-link:visited {
+  color: var(--accent);
+}
+
+.logo-link:hover {
+  color: var(--text);
+}
+
+.navbar .tabs a {
+  /* gap for tabs */
+  margin-left: 3rem;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 500; 
+  transition: color 0.2s;
+}
+
+.navbar .tabs a:hover {
+  color: var(--accent);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.dropdown-button:hover {
+  color: var(--accent);
 }
+
+/* Hidden by default */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #111;
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  border-radius: 8px;
+  z-index: 10;
+  padding: 0.5rem 0;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1rem;
+  transition: background 0.2s;
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  background: var(--hover);
+  color: var(--accent);
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* Hero section */
+.hero {
+  height: 50vh;
+  background: #181818;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .placeholder {
+  width: 75%;
+  height: 75%;
+  background: var(--card);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #999;
+}
+
+/* Games section */
+.games {
+  padding: 2rem;
+  text-align: center;
+}
+
+.games h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.game-card {
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  background: var(--hover);
+}
+
+.game-thumbnail {
+  height: 160px;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #aaa;
+}
+
+.game-thumbnail-title {
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Make game card links look like normal cards, not links */
+.game-card-link {
+  text-decoration: none; /* remove underline */
+  color: inherit;        /* inherit the card’s text color */
+  display: block;        /* make sure the link fills the card */
+}
+
+.game-card-link:visited {
+  color: inherit;
+}
+
+.game-card-link:hover {
+  color: inherit;
+}
+
