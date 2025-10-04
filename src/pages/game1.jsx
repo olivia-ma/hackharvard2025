@@ -71,8 +71,14 @@ export default function Game1() {
         {/* Main game area */}
         <div className="game-view">
           <div className="game-placeholder">
-            {/* NEED TO  */}
-            game container
+            <h2></h2>
+            <iframe
+              src="/breakout/breakout/index.html"
+              width="300%"
+              height="800"
+              style={{ border: "none" }}
+              title="Breakout Game"
+            ></iframe>
           </div>
         </div>
 
