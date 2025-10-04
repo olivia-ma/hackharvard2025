@@ -5,6 +5,7 @@ import Game1 from "./pages/Game1";
 import Game2 from "./pages/Game2";
 import Game3 from "./pages/Game3";
 import Game4 from "./pages/Game4";
+import SnakeGame from "./snakeGame";
 
 
 function Navbar() {
@@ -133,7 +134,7 @@ function Flappy() {
       <h2>Play Flappy Bird</h2>
       <iframe
         src="/JS-Flappy-Bird/index.html"
-        width="400"
+        width="100%"
         height="600"
         style={{ border: "none" }}
         title="Flappy Bird"
@@ -148,8 +149,8 @@ function Dino() {
       <h2>Play Dino</h2>
       <iframe
         src="/t-rex-runner/index.html"
-        width="400"
-        height="600"
+        width="1200"
+        height="500"
         style={{ border: "none" }}
         title="Dino Runner"
       ></iframe>
