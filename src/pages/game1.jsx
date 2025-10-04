@@ -26,6 +26,11 @@ export default function Game1() {
     setBindings([...bindings, { action: eegActions[0], key: "" }]);
   };
 
+  const removeBinding = (index) => {
+    const newBindings = bindings.filter((_, i) => i !== index);
+    setBindings(newBindings);
+  };
+
   return (
     <div className="game-page">
       {/* Top bar */}
@@ -76,6 +81,15 @@ export default function Game1() {
                     handleBindingChange(idx, "key", e.target.value)
                   }
                 />
+
+                <button
+                  className="delete-binding"
+                  onClick={() => removeBinding(idx)}
+                  aria-label="Delete binding"
+                >
+                  ✕
+                </button>
+                
               </div>
             ))}
 
