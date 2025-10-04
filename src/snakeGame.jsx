@@ -82,8 +82,17 @@ function SnakeGame() {
   }, []);
 
   return (
-    <div>
-      <h2>Snake Game</h2>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "100vh", // centers vertically in the viewport
+        backgroundColor: "#000" // optional: to match your border
+      }}
+    >
+      <h2 style={{ color: "white" }}>Snake Game</h2>
       <canvas
         ref={canvasRef}
         width="400"
