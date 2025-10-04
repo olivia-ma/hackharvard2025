@@ -1,3 +1,5 @@
+// app.jsx
+
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "./index.css";
@@ -8,6 +10,7 @@ import Game4 from "./pages/Game4";
 import LoginPage from "./pages/LoginPage";
 import SnakeGame from "./snakeGame";
 
+import GradientCursor from "./components/GradientCursor";
 
 function Navbar() {
   return (
@@ -112,20 +115,24 @@ function LandingPage() {
 export default function App() {
   return (
     <div>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/games/Game1" element={<Game1/>} />
-        <Route path="/games/Game2" element={<Game2/>} />
-        <Route path="/games/Game3" element={<Game3/>} />
-        <Route path="/games/Game4" element={<Game4/>} />
-        <Route path="/flappy" element={<Flappy />} />
-        <Route path="/dino" element={<Dino />} />
-        <Route path="/breakout" element={<Breakout />} />
-        <Route path="/pong" element={<Pong />} />
-        <Route path="/snake" element={<Snake />} />
-      </Routes>
+      <GradientCursor />
+      <div className="app-content">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/games/Game1" element={<Game1/>} />
+            <Route path="/games/Game2" element={<Game2/>} />
+            <Route path="/games/Game3" element={<Game3/>} />
+            <Route path="/games/Game4" element={<Game4/>} />
+            <Route path="/flappy" element={<Flappy />} />
+            <Route path="/dino" element={<Dino />} />
+            <Route path="/breakout" element={<Breakout />} />
+            <Route path="/pong" element={<Pong />} />
+            <Route path="/snake" element={<Snake />} />
+          </Routes>
+      </div>
     </div>
+      
   );
 }
 
