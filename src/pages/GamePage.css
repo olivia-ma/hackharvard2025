@@ -1,0 +1,101 @@
+.game-page {
+  color: white;
+  padding: 2rem;
+  background: #0c0c0c;
+  min-height: 100vh;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.game-title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.keybind-toggle {
+  background: var(--accent);
+  border: 1px solid #555;
+  padding: 0.5rem 1.2rem;
+  color: black;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.keybind-toggle:hover {
+  background: #333;
+}
+
+.game-container {
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+.game-container.with-panel {
+  grid-template-columns: 70% 30%;
+}
+
+.game-view {
+  flex: 1;
+  background: #333;
+  border-radius: 12px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-placeholder {
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.keybind-panel {
+  width: 350px;
+  background: #181818;
+  margin-left: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #333;
+}
+
+.keybind-panel h2 {
+  margin-top: 0;
+}
+
+.binding-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.binding-row select,
+.binding-row input {
+  flex: 1;
+  padding: 0.4rem;
+  background: #222;
+  border: 1px solid #555;
+  color: white;
+  border-radius: 6px;
+}
+
+.add-binding {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.add-binding:hover {
+  background: #444;
+}
