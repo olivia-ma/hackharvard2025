@@ -1,0 +1,84 @@
+/* src/components/AuthForm.css */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1b1b1b;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  margin: 4rem auto;
+  gap: 1rem;
+  color: white;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background-color: #222;
+  color: white;
+}
+
+.auth-form input::placeholder {
+  color: #aaa;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.auth-form button:hover {
+  background-color: #555;
+}
+
+/* Sign-out state container */
+.signout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1b1b1b;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.welcome-text {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #ddd;
+}
+
+/* Sign-out button styling */
+.signout-button {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #ff4d4d;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.signout-button:hover {
+  background-color: #ff3333;
+  transform: translateY(-2px);
+}
+
+.signout-button:active {
+  transform: translateY(0);
+}
+

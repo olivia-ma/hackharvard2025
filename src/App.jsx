@@ -5,6 +5,8 @@ import Game1 from "./pages/Game1";
 import Game2 from "./pages/Game2";
 import Game3 from "./pages/Game3";
 import Game4 from "./pages/Game4";
+import LoginPage from "./pages/LoginPage";
+
 
 
 function Navbar() {
@@ -31,6 +33,9 @@ function Navbar() {
             <a href="#">game 2</a>
             <a href="#">game 3</a>
             <a href="#">game 4</a> */}
+          
+          
+          
           </div>
         </div>
 
@@ -38,6 +43,12 @@ function Navbar() {
 
         <a href="#">Purpose</a>
 
+        
+
+      </div>
+      
+      <div className="auth-link">
+            <Link to="/login" className="login-button">Login</Link>
       </div>
     </nav>
   );
@@ -98,6 +109,7 @@ export default function App() {
         <Route path="/games/Game2" element={<Game2/>} />
         <Route path="/games/Game3" element={<Game3/>} />
         <Route path="/games/Game4" element={<Game4/>} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </div>
   );

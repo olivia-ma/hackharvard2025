@@ -16,6 +16,16 @@ export async function signInWithEmail({ email, password }) {
   return data.user
 }
 
+export async function getUsernameForUser(userId) {
+  const { data, error } = await supabase
+    .from('users')
+    .select('username')
+    .eq('id', userId)
+    .single()
+  if (error) throw error
+  return data?.username
+}
+
 export async function signOut() {
   await supabase.auth.signOut()
 }
