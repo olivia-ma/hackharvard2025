@@ -19,12 +19,13 @@ body {
 /* Navbar */
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 1rem 4rem;
   background: black;
   box-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
+
 
 .navbar .logo {
   font-size: 1.8rem;
@@ -47,17 +48,25 @@ body {
   color: var(--text);
 }
 
-.navbar .tabs a {
-  /* gap for tabs */
-  margin-left: 3rem;
+/* push tabs to the center with spacing */
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-left: 25rem; /* gives space from logo */
+}
+
+.tabs a, 
+.dropdown-button {
   text-decoration: none;
   color: var(--text);
   font-size: 1.1rem;
-  font-weight: 500; 
+  font-weight: 500;
   transition: color 0.2s;
 }
 
-.navbar .tabs a:hover {
+.tabs a:hover,
+.dropdown-button:hover {
   color: var(--accent);
 }
 
@@ -111,6 +120,31 @@ body {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.auth-link {
+  margin-left: auto;
+}
+
+.login-button {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.login-button:hover {
+  background: var(--hover);
+  color: var(--accent);
+}
+
+.login-button:visited {
+  color: var(--text); /* stop purple visited color */
+}
+
+
 
 
 /* Hero section */
@@ -196,4 +230,5 @@ body {
 .game-card-link:hover {
   color: inherit;
 }
+
 

@@ -5,6 +5,8 @@ import Game1 from "./pages/Game1";
 import Game2 from "./pages/Game2";
 import Game3 from "./pages/Game3";
 import Game4 from "./pages/Game4";
+import LoginPage from "./pages/LoginPage";
+import SnakeGame from "./snakeGame";
 
 
 function Navbar() {
@@ -36,6 +38,9 @@ function Navbar() {
             <a href="#">game 2</a>
             <a href="#">game 3</a>
             <a href="#">game 4</a> */}
+          
+          
+          
           </div>
         </div>
 
@@ -43,6 +48,12 @@ function Navbar() {
 
         <a href="#">Purpose</a>
 
+        
+
+      </div>
+      
+      <div className="auth-link">
+            <Link to="/login" className="login-button">Login</Link>
       </div>
     </nav>
   );
@@ -133,7 +144,7 @@ function Flappy() {
       <h2>Play Flappy Bird</h2>
       <iframe
         src="/JS-Flappy-Bird/index.html"
-        width="400"
+        width="100%"
         height="600"
         style={{ border: "none" }}
         title="Flappy Bird"
@@ -148,8 +159,8 @@ function Dino() {
       <h2>Play Dino</h2>
       <iframe
         src="/t-rex-runner/index.html"
-        width="400"
-        height="600"
+        width="1200"
+        height="500"
         style={{ border: "none" }}
         title="Dino Runner"
       ></iframe>
