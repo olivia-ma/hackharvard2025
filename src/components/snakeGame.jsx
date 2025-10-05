@@ -119,14 +119,27 @@ function SnakeGame() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "60vh",
+        padding: "20px",
         backgroundColor: "#000",
+        borderRadius: "8px",
+        maxWidth: "fit-content",
+        margin: "0 auto",
       }}
     >
       {!gameStarted && (
         <button
           onClick={startGame}
-          style={{ marginBottom: "20px", padding: "10px 20px", fontSize: "16px" }}
+          style={{ 
+            marginBottom: "20px", 
+            padding: "10px 20px", 
+            fontSize: "16px",
+            backgroundColor: "#4CAF50",
+            color: "white",
+            border: "none",
+            borderRadius: "4px",
+            cursor: "pointer",
+            fontWeight: "bold"
+          }}
         >
           Start Game
         </button>

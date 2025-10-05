@@ -1,4 +1,5 @@
   //Tomando el lienzo
+  // Cache busting - updated highscore logic
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
   
@@ -39,7 +40,16 @@
 
   //variable de puntuación
   var score = 0;
-  var highScore = localStorage.getItem("highScore") || 0;
+  var highScore = 0; // Reset highscore to 0 every time the game loads
+  console.log("Initial highscore:", highScore);
+  
+  // Function to update highscore
+  function updateHighScore() {
+    if (score > highScore) {
+      highScore = score;
+      console.log("New highscore:", highScore);
+    }
+  }
 
   //Bucle para crear bloques
   var bricks = [];
@@ -96,10 +106,7 @@
                     score++;
                     //Si golpeas todas, un mensaje de victoria
                     if(score == brickRowCount*brickColumnCount) {
-                      if (score > highScore) {
-                        highScore = score;
-                        localStorage.setItem("highScore", highScore);
-                      }
+                      updateHighScore();
                       drawScore.fillStyle = "#FFFFFF";
                       ctx.textAlign = "center";
                       ctx.font = "30px Arial";
@@ -184,10 +191,7 @@
             dy = -dy;
         }
         else {
-          if (score > highScore) {
-            highScore = score;
-            localStorage.setItem("highScore", highScore);
-          }
+          updateHighScore();
           ctx.textAlign = "left"; 
           ctx.font = "30px Arial";
           ctx.fillStyle = "#000000";

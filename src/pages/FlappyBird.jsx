@@ -4,7 +4,19 @@ export default function FlappyBird() {
   return (
     <div>
       <h2>Flappy Bird</h2>
-      <iframe src="/flappy/index.html" width="100%" height="600" style={{ border: "none" }} title="Flappy Bird Game" />
+      <iframe src="/flappy/index.html" 
+      style={{
+        position: "fixed",
+        top: "130px",       // match your navbar height
+        left: 0,
+        width: "100vw",
+        height: "calc(100vh - 130px)", // full height minus navbar
+        border: "none",
+        margin: 0,
+        padding: 0,
+        overflow: "hidden"
+      }}
+      title="Flappy Bird Game" />
     </div>
   );
 }
