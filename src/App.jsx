@@ -1,6 +1,6 @@
 // app.jsx
 
-import React from "react";
+import React from "react";    
 import { Routes, Route, Link } from "react-router-dom";
 import "./index.css";
 import Game1 from "./pages/Game1";
@@ -190,17 +190,19 @@ function Breakout() {
   );
 }
 
+
+
 function Pong() {
-  return ( 
-    <div>
-      <h2>Pong</h2>
+  return (
+    <div style={{ textAlign: "center" }}>
+      <h2>Play Pong</h2>
       <iframe
-        src="/pong-js/index.html"
-        width="80%"
+        src="https://R1W125.github.io/pong-js/" // your GitHub Pages URL
+        width="100%"
         height="600"
         style={{ border: "none" }}
         title="Pong Game"
-      ></iframe>
+      />
     </div>
   );
 }
