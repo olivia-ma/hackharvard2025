@@ -8,7 +8,7 @@ import Game2 from "./pages/Game2";
 import Game3 from "./pages/Game3";
 import Game4 from "./pages/Game4";
 import LoginPage from "./pages/LoginPage";
-import SnakeGame from "./snakeGame";
+import SnakeGame from "../public/snakeGame";
 
 import GradientCursor from "./components/GradientCursor";
 
@@ -186,16 +186,16 @@ function Dino() {
 }
 
 function Breakout() {
-  return ( 
-    <div>
-      <h2>Breakout</h2>
+  return (
+    <div style={{ textAlign: "center" }}>
+      <h2>Play Breakout</h2>
       <iframe
-        src="/breakout/breakout/index.html"
+        src="https://r1w125.github.io/Breakout-HTML/" // your GitHub Pages URL
         width="100%"
-        height="1000"
+        height="600"
         style={{ border: "none" }}
         title="Breakout Game"
-      ></iframe>
+      />
     </div>
   );
 }
