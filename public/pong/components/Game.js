@@ -36,12 +36,14 @@ class Game {
 
 		this.playerA = new Player({
 			x: this.WALL_OFFSET,
-			y: this.canvas.height / 2
-		});
+			y: this.canvas.height / 2,
+			trackHighScore: true,
+		});	
 
 		this.playerB = new PaddleBot({
 			x: this.canvas.width - this.WALL_OFFSET,
 			y: this.canvas.height / 2,
+			trackHighScore: false,
 		});
 
 		this.ball = new Ball({
@@ -101,6 +103,8 @@ class Game {
 
 	levelUp() {
 		this.round += 1;
+		this.playerA.resetScore();
+		this.playerB.resetScore();
 		this.playerA.levelUp();
 		this.playerB.levelUp();
 		this.ball.levelUp();
@@ -188,6 +192,13 @@ class Game {
 			this.playerB.getScore().toString(),
 			(this.canvas.width / 2) + SCORE_X_PADDING,
 			SCORE_Y_PADDING
+		);
+		// New code to display high score
+		this.context.font = '40px Courier New';
+		this.context.fillText(
+		`HighScore: ${Paddle.highscorepong}`,
+		(this.canvas.width / 3.2) - SCORE_X_PADDING,
+		SCORE_Y_PADDING - 100
 		);
 	}
 
@@ -306,6 +317,12 @@ class Game {
 
 		winner.addScore();
 		beep2.play();
+
+		if (winner === this.playerA) {
+		if (winner.cumulativeScore > winner.highscore) {
+			winner.highscore = winner.cumulativeScore;
+			}
+		}
 	};
 
 	isTurnDelayOver() {

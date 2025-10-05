@@ -1,6 +1,6 @@
 class Ball {
   BALL_SIZE = 20;
-  BALL_SPEED = 300;
+  BALL_SPEED = 500;
   BALL_SPEED_LEVEL_INCREMENT = 20;
 
   constructor({ x, y }) {

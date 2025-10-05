@@ -3,9 +3,9 @@ import GameTemplate from "./GameTemplate";
 
 export default function Dino() {
   return (
-    <GameTemplate
-      title="Dino"
-      iframeSrc="https://r1w125.github.io/t-rex-runner/"
-    />
+    <div>
+      <h2>Dino</h2>
+      <iframe src="/dino/index.html" width="100%" height="600" style={{ border: "none" }} title="Dino Game" />
+    </div>
   );
 }

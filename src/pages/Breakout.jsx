@@ -3,9 +3,10 @@ import GameTemplate from "./GameTemplate";
 
 export default function Breakout() {
   return (
-    <GameTemplate
-      title="Breakout"
-      iframeSrc="https://r1w125.github.io/Breakout-HTML/"
-    />
+    <div>
+      <h2>Breakout</h2>
+      <iframe src="/breakout/index.html" width="100%" height="600" style={{ border: "none" }} title="Breakout Game" />
+    </div>
+
   );
 }
