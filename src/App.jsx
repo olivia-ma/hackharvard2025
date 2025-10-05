@@ -157,14 +157,14 @@ function Snake() {
 
 function Flappy() {
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2>Play FlappyBird</h2>
+    <div>
+      <h2>FlappyBird</h2>
       <iframe
-        src="https://r1w125.github.io/JS-Flappy-Bird/" // your GitHub Pages URL
+        src="/flappy/index.html"
         width="100%"
         height="600"
         style={{ border: "none" }}
-        title="Flappy Bird Game"
+        title="Flappy Game"
       />
     </div>
   );
@@ -172,10 +172,10 @@ function Flappy() {
 
 function Dino() {
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2>Play Dino</h2>
+    <div>
+      <h2>Dino</h2>
       <iframe
-        src="https://r1w125.github.io/t-rex-runner/" // your GitHub Pages URL
+        src="/dino/index.html"
         width="100%"
         height="600"
         style={{ border: "none" }}
@@ -187,10 +187,10 @@ function Dino() {
 
 function Breakout() {
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2>Play Breakout</h2>
+    <div>
+      <h2>Breakout</h2>
       <iframe
-        src="https://r1w125.github.io/Breakout-HTML/" // your GitHub Pages URL
+        src="/breakout/index.html"
         width="100%"
         height="600"
         style={{ border: "none" }}
@@ -204,10 +204,10 @@ function Breakout() {
 
 function Pong() {
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2>Play Pong</h2>
+    <div>
+      <h2>Pong</h2>
       <iframe
-        src="https://R1W125.github.io/pong-js/" // your GitHub Pages URL
+        src="/pong/index.html"
         width="100%"
         height="600"
         style={{ border: "none" }}
