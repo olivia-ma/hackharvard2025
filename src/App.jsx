@@ -1,6 +1,6 @@
 // app.jsx
 
-import React from "react";
+import React from "react";    
 import { Routes, Route, Link } from "react-router-dom";
 import "./index.css";
 import Game1 from "./pages/Game1";
@@ -156,31 +156,31 @@ function Snake() {
 }
 
 function Flappy() {
-  return ( 
-    <div>
-      <h2>Play Flappy Bird</h2>
+  return (
+    <div style={{ textAlign: "center" }}>
+      <h2>Play FlappyBird</h2>
       <iframe
-        src="/JS-Flappy-Bird/index.html"
+        src="https://r1w125.github.io/JS-Flappy-Bird/" // your GitHub Pages URL
         width="100%"
         height="600"
         style={{ border: "none" }}
-        title="Flappy Bird"
-      ></iframe>
+        title="Flappy Bird Game"
+      />
     </div>
   );
 }
 
 function Dino() {
-  return ( 
-    <div>
+  return (
+    <div style={{ textAlign: "center" }}>
       <h2>Play Dino</h2>
       <iframe
-        src="/t-rex-runner/index.html"
-        width="1200"
-        height="500"
+        src="https://r1w125.github.io/t-rex-runner/" // your GitHub Pages URL
+        width="100%"
+        height="600"
         style={{ border: "none" }}
-        title="Dino Runner"
-      ></iframe>
+        title="Dino Game"
+      />
     </div>
   );
 }
@@ -200,17 +200,19 @@ function Breakout() {
   );
 }
 
+
+
 function Pong() {
-  return ( 
-    <div>
-      <h2>Pong</h2>
+  return (
+    <div style={{ textAlign: "center" }}>
+      <h2>Play Pong</h2>
       <iframe
-        src="/pong-js/index.html"
-        width="80%"
+        src="https://R1W125.github.io/pong-js/" // your GitHub Pages URL
+        width="100%"
         height="600"
         style={{ border: "none" }}
         title="Pong Game"
-      ></iframe>
+      />
     </div>
   );
 }
