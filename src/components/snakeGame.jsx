@@ -16,7 +16,7 @@ function SnakeGame() {
 
     const gridSize = 20;
     const tileCount = 20;
-    let snake = [{ x: 10, y: 0 }];
+    let snake = [{ x: 0, y: 10 }];
     let apple = { x: 15, y: 15 };
     let score = 0;
 
