@@ -4,24 +4,69 @@ import "./GamePage.css";
 export default function GameTemplate({ title, iframeSrc, iframeHeight = 600, children }) {
   const [showBindings, setShowBindings] = useState(false);
   const [bindings, setBindings] = useState([
-    { action: "Blink Both Eyes", key: "Space" },
-    { action: "Blink Left Eye", key: "ArrowLeft" },
+    { action: "Left Look", key: "left" },
+    { action: "Right Look", key: "left" },
   ]);
   const [listeningIndex, setListeningIndex] = useState(null);
 
   const eegActions = [
-    "Blink Both Eyes",
-    "Blink Left Eye",
-    "Blink Right Eye",
-    "Look Left",
-    "Look Right",
+    "Single Blink",
+    "Double Blink",
+    "Left Look",
+    "Right Look",
   ];
 
   const handleBindingChange = (index, field, value) => {
+    return
     const newBindings = [...bindings];
     newBindings[index][field] = value;
     setBindings(newBindings);
   };
+
+  const sendBindingToBackend = async (eeg_action, key_binding) => {
+      try {
+      const resp = await fetch("http://127.0.0.1:4545/update-keybindings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // add Authorization header here if your backend requires it:
+          // "Authorization": "Bearer <token>"
+        },
+        body: JSON.stringify({
+          event_name:  eeg_action,
+          key: key_binding
+        })
+      });
+
+      if (!resp.ok) {
+        // try to parse error detail returned by FastAPI
+        const errBody = await resp.json().catch(() => null);
+        const errMsg = errBody?.detail || `${resp.status} ${resp.statusText}`;
+        throw new Error(errMsg);
+      }}
+      catch (err) {
+        // 🔍 Print detailed info
+        console.error("❌ Failed to update key bindings:", err);
+        alert(`Update failed: ${err.message}`);
+      }
+  }
+
+  const moveAllToBackend = async () => {
+    for (const a of eegActions) {
+      // Find the binding for this action
+      const binding = bindings.find(b => b.action === a);
+
+      // If not found, send an empty key
+      if (!binding || !binding.key) {
+        await sendBindingToBackend(a, '');
+        continue;
+      }
+
+      // Otherwise send the existing binding
+      await sendBindingToBackend(binding.action, binding.key);
+    }
+  };
+
 
   const addBinding = () => {
     setBindings([...bindings, { action: eegActions[0], key: "" }]);
@@ -109,6 +154,9 @@ export default function GameTemplate({ title, iframeSrc, iframeHeight = 600, chi
 
             <button className="add-binding" onClick={addBinding}>
               + Add Binding
+            </button>
+            <button className="add-binding" onClick={moveAllToBackend}>
+              send key bindings to backend
             </button>
           </div>
         )}
