@@ -2,11 +2,14 @@ import { useEffect, useRef, useState } from "react";
 
 function SnakeGame() {
   const canvasRef = useRef(null);
-  const [gameStarted, setGameStarted] = useState(false); // track if game is running
-  const intervalRef = useRef(null); // store interval ID
+  const [gameStarted, setGameStarted] = useState(false);
+  const intervalRef = useRef(null);
+  const [highScore, setHighScore] = useState(() => {
+    return parseInt(localStorage.getItem("highScore")) || 0;
+  });
 
   useEffect(() => {
-    if (!gameStarted) return; // only run the game loop if started
+    if (!gameStarted) return;
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -40,34 +43,25 @@ function SnakeGame() {
 
     function checkCollisions() {
       const head = snake[0];
-
-      // If hits walls
-      if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
-        endGame();
-      }
-
-      // If hits itself
+      if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) endGame();
       for (let i = 1; i < snake.length; i++) {
-        if (head.x === snake[i].x && head.y === snake[i].y) {
-          endGame();
-        }
+        if (head.x === snake[i].x && head.y === snake[i].y) endGame();
       }
     }
 
     function drawGame() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Draw snake
       ctx.fillStyle = "green";
-      for (const segment of snake) ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
+      for (const s of snake)
+        ctx.fillRect(s.x * gridSize, s.y * gridSize, gridSize, gridSize);
 
-      // Draw apple
       ctx.fillStyle = "red";
       ctx.fillRect(apple.x * gridSize, apple.y * gridSize, gridSize, gridSize);
 
-      // Draw score
       ctx.fillStyle = "white";
-      ctx.fillText("Score: " + score, 10, 10);
+      ctx.font = "16px Arial";
+      ctx.fillText(`Score: ${score}`, 10, 20);
+      ctx.fillText(`High Score: ${highScore}`, 10, 40);
     }
 
     function placeApple() {
@@ -90,12 +84,14 @@ function SnakeGame() {
       if (e.key === "ArrowRight") [dx, dy] = [dy, -dx];
     }
 
-    // When the game ends
     function endGame() {
-      clearInterval(intervalRef.current); // stop the game loop
-      intervalRef.current = null;
-      setGameStarted(false); // show Start Game button again
-      resetGame(); // reset snake and score
+      clearInterval(intervalRef.current);
+      if (score > highScore) {
+        setHighScore(score);
+        localStorage.setItem("highScore", score);
+      }
+      setGameStarted(false);
+      resetGame();
     }
 
     document.addEventListener("keydown", handleKeyDown);
@@ -103,14 +99,11 @@ function SnakeGame() {
 
     return () => {
       clearInterval(intervalRef.current);
-      intervalRef.current = null;
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [gameStarted]);
+  }, [gameStarted, highScore]);
 
-  const startGame = () => {
-    setGameStarted(true);
-  };
+  const startGame = () => setGameStarted(true);
 
   return (
     <div
@@ -127,22 +120,27 @@ function SnakeGame() {
       }}
     >
       {!gameStarted && (
-        <button
-          onClick={startGame}
-          style={{ 
-            marginBottom: "20px", 
-            padding: "10px 20px", 
-            fontSize: "16px",
-            backgroundColor: "#4CAF50",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-            fontWeight: "bold"
-          }}
-        >
-          Start Game
-        </button>
+        <>
+          <button
+            onClick={startGame}
+            style={{
+              marginBottom: "20px",
+              padding: "10px 20px",
+              fontSize: "16px",
+              backgroundColor: "#4CAF50",
+              color: "white",
+              border: "none",
+              borderRadius: "4px",
+              cursor: "pointer",
+              fontWeight: "bold",
+            }}
+          >
+            Start Game
+          </button>
+          <p style={{ color: "white", fontSize: "18px" }}>
+            High Score: {highScore}
+          </p>
+        </>
       )}
       <canvas
         ref={canvasRef}
