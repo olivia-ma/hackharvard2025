@@ -1,21 +1,4 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-/* Hide scrollbars globally */
-* {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-}
-
-*::-webkit-scrollbar {
-  display: none; /* WebKit */
-}
-
+/* Hide scrollbars only on game pages */
 .game-page {
   color: white;
   padding: 2rem;
@@ -25,6 +8,15 @@ html, body {
   height: 100vh;
   overflow: hidden;
   position: relative;
+}
+
+.game-page * {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.game-page *::-webkit-scrollbar {
+  display: none; /* WebKit */
 }
 
 .game-header {
@@ -126,7 +118,6 @@ html, body {
   transform-origin: center;
   overflow: hidden;
   position: relative;
-  scrolling: no;
 }
 
 

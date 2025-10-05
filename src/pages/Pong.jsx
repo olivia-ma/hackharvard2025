@@ -1,11 +1,10 @@
 import React from "react";
-import GameTemplate from "./GameTemplate";
 
 export default function Pong() {
   return (
     <div>
       <h2 style={{ 
-        background: "#111", 
+        background: "transparent", 
         margin: 0, 
         padding: 0, 
         color: "white",      // or whatever text color you want
@@ -26,6 +25,5 @@ export default function Pong() {
 
       title="Pong Game" />
     </div>
-
   );
 }

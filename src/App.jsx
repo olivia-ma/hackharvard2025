@@ -13,6 +13,8 @@ import Dino from "./pages/Dino";
 import Breakout from "./pages/Breakout";
 import Pong from "./pages/Pong"
 import LoginPage from "./pages/LoginPage";
+import Accessibility from "./pages/Accessibility";
+import Technology from "./pages/Technology";
 // import SnakeGame from "./snakeGame";
 
 import GradientCursor from "./components/GradientCursor";
@@ -50,9 +52,9 @@ function Navbar() {
           </div>
         </div>
 
-        <a href="#accessibility">Accessibility</a>
+        <Link to="/accessibility">Accessibility</Link>
 
-        <a href="#technology">Technology</a>
+        <Link to="/technology">Technology</Link>
 
         
 
@@ -206,6 +208,8 @@ export default function App() {
             <Route path="/breakout" element={<Breakout />} />
             <Route path="/pong" element={<Pong />} />
             <Route path="/snake" element={<Snake />} />
+            <Route path="/accessibility" element={<Accessibility />} />
+            <Route path="/technology" element={<Technology />} />
             
             <Route path="/login" element={<LoginPage />} />
           </Routes>

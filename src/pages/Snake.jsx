@@ -1,11 +1,11 @@
 import React from "react";
-import GameTemplate from "./GameTemplate";
 import SnakeGame from "/public/snakeGame";
 
 export default function Snake() {
   return (
-    <GameTemplate title="Snake">
+    <div>
+      <h2>Snake</h2>
       <SnakeGame />
-    </GameTemplate>
+    </div>
   );
 }
