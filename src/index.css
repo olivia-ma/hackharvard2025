@@ -117,8 +117,10 @@ body {
   display: flex;
   align-items: center;
   gap: 3rem;
-  margin-left: 25rem; /* gives space from logo */
+  margin-left: 0; /* center tabs instead of pushing with large margin */
   flex-wrap: nowrap;
+  flex: 1; /* take remaining space between logo and auth */
+  justify-content: center; /* center tabs in available space */
 }
 
 .tabs a, 

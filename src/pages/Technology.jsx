@@ -10,7 +10,7 @@ export default function Technology() {
             <h3>Muse EEG Headband Integration</h3>
             <p>BlinkLet uses advanced EEG signal processing to detect:</p>
             <ul>
-              <li>Single eye blinks (left/right)</li>
+              <li>Double blinks (left/right)</li>
               <li>Double eye blinks</li>
               <li>Eye movements (left/right/up/down)</li>
               <li>Concentration patterns</li>
