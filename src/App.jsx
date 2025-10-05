@@ -146,16 +146,16 @@ function Snake() {
 }
 
 function Flappy() {
-  return ( 
-    <div>
-      <h2>Play Flappy Bird</h2>
+  return (
+    <div style={{ textAlign: "center" }}>
+      <h2>Play FlappyBird</h2>
       <iframe
-        src="/JS-Flappy-Bird/index.html"
+        src="https://r1w125.github.io/JS-Flappy-Bird/" // your GitHub Pages URL
         width="100%"
         height="600"
         style={{ border: "none" }}
-        title="Flappy Bird"
-      ></iframe>
+        title="Flappy Bird Game"
+      />
     </div>
   );
 }
