@@ -4,8 +4,8 @@ import "./GamePage.css";
 export default function GameTemplate({ title, iframeSrc, iframeHeight = 600, children }) {
   const [showBindings, setShowBindings] = useState(false);
   const [bindings, setBindings] = useState([
-    { action: "Left Look", key: "up" },
-    { action: "Right Look", key: "down" },
+    { action: "Left Look", key: "left" },
+    { action: "Right Look", key: "right" },
   ]);
   const [listeningIndex, setListeningIndex] = useState(null);
 
