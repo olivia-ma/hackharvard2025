@@ -10,10 +10,11 @@ html, body {
 .game-page {
   color: white;
   padding: 2rem;
-  background: #0c0c0c;
+  background: linear-gradient(135deg, #0a0a2e 0%, #16213e 25%, #1e3a8a 50%, #1e40af 75%, #1d4ed8 100%);
+  background-attachment: fixed;
   width: 100%;
   height: 100vh;
-  overflow:hidden
+  overflow: hidden;
 }
 
 .game-header {
@@ -26,23 +27,32 @@ html, body {
 }
 
 .game-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin: 0;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa, #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
 }
 
 .keybind-toggle {
-  background: var(--accent);
-  border: 1px solid #555;
-  padding: 0.5rem 1.2rem;
-  color: black;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa, #93c5fd);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  padding: 0.8rem 1.5rem;
+  color: white;
   font-size: 1rem;
-  border-radius: 6px;
+  font-weight: 600;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
 }
 
 .keybind-toggle:hover {
-  background: #333;
+  background: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(30, 58, 138, 0.4);
 }
 
 .game-container {
@@ -115,18 +125,27 @@ html, body {
 
 .keybind-panel {
   width: 530px;
-  background: #181818;
+  background: rgba(30, 58, 138, 0.3);
+  backdrop-filter: blur(20px);
   margin-left: 1.5rem;
   margin-right: 5rem;
-  padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid #333;
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(96, 165, 250, 0.2);
   height: 100%;
   overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(30, 58, 138, 0.3);
 }
 
 .keybind-panel h2 {
   margin-top: 0;
+  color: #f8fafc;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .binding-row {
@@ -138,38 +157,58 @@ html, body {
 .binding-row select,
 .binding-row input {
   flex: 1;
-  background: #222;
-  border: 1px solid #555;
+  background: rgba(10, 10, 46, 0.5);
+  border: 1px solid rgba(96, 165, 250, 0.3);
   color: white;
-  border-radius: 6px;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.binding-row select:focus,
+.binding-row input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+  background: rgba(10, 10, 46, 0.7);
 }
 
 .add-binding {
-  background: #333;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa, #93c5fd);
   color: white;
-  border: none;
-  padding: 0.5rem 1rem;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  padding: 0.8rem 1.5rem;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 12px;
   width: 100%;
   font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
 }
 
 .add-binding:hover {
-  background: #444;
+  background: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(30, 58, 138, 0.4);
 }
 
 .delete-binding {
-  background: #400;
+  background: linear-gradient(135deg, #ef4444, #f87171);
   color: #fff;
-  border: none;
-  padding: 0.4rem 0.7rem;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 0.6rem 1rem;
   font-size: 1rem;
-  border-radius: 6px;
+  font-weight: 600;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
 }
 
 .delete-binding:hover {
-  background: #600;
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(239, 68, 68, 0.4);
 }

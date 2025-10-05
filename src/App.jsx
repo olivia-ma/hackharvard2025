@@ -23,8 +23,6 @@ function Navbar() {
       <div className="logo">
         <Link to="/" className="logo-link">BlinkLet</Link>
       </div>
-
-      
       
       <div className="tabs">
 
@@ -52,9 +50,9 @@ function Navbar() {
           </div>
         </div>
 
-        <a href="#">Use Cases</a>
+        <a href="#accessibility">Accessibility</a>
 
-        <a href="#">Purpose</a>
+        <a href="#technology">Technology</a>
 
         
 
@@ -72,8 +70,14 @@ function Hero() {
     <section className="hero">
       <div className="hero-overlay">
         <h1>BlinkLet</h1>
-        <p>Harness EEG signals for blinks and eye movements to control technology hands-free. Empowering new forms of interaction, accessibility, and play.</p>
-        <Link to="/snake" className="cta-button">Play Now</Link>
+        <h2>Where Mind Meets Machine</h2>
+        <p>Revolutionary EEG-powered gaming that transforms brain signals into digital control. Experience the future of accessibility technology where a simple blink or eye movement becomes your controller.</p>
+        <div className="hero-features">
+          <div className="feature-item">🧠 EEG Brain Control</div>
+          <div className="feature-item">♿ Accessibility First</div>
+          <div className="feature-item">🎮 Play Without Hands</div>
+        </div>
+        <Link to="/snake" className="cta-button">Start Your Journey</Link>
       </div>
     </section>
 
@@ -117,11 +121,70 @@ function GamesSection() {
   );
 }
 
+function AccessibilitySection() {
+  return (
+    <section id="accessibility" className="accessibility-section">
+      <div className="container">
+        <h2>Empowering Every Player</h2>
+        <div className="accessibility-grid">
+          <div className="accessibility-card">
+            <div className="icon">♿</div>
+            <h3>Limited Mobility</h3>
+            <p>Perfect for individuals with paralysis, stroke recovery, or amputation who need alternative control methods.</p>
+          </div>
+          <div className="accessibility-card">
+            <div className="icon">🧠</div>
+            <h3>Brain-Computer Interface</h3>
+            <p>Direct neural control through EEG signals - no physical movement required beyond eye blinks and movements.</p>
+          </div>
+          <div className="accessibility-card">
+            <div className="icon">🎯</div>
+            <h3>Precise Control</h3>
+            <p>Customizable key bindings for different EEG patterns, ensuring comfortable and accurate gameplay.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TechnologySection() {
+  return (
+    <section id="technology" className="technology-section">
+      <div className="container">
+        <h2>Cutting-Edge Technology</h2>
+        <div className="tech-content">
+          <div className="tech-text">
+            <h3>Muse EEG Headband Integration</h3>
+            <p>BlinkLet uses advanced EEG signal processing to detect:</p>
+            <ul>
+              <li>Single eye blinks (left/right)</li>
+              <li>Double eye blinks</li>
+              <li>Eye movements (left/right/up/down)</li>
+              <li>Concentration patterns</li>
+            </ul>
+            <p>These signals are translated into intuitive controls, creating accessible experiences for communication, productivity, and entertainment.</p>
+          </div>
+          <div className="tech-visual">
+            <div className="eeg-demo">
+              <div className="signal-wave"></div>
+              <div className="signal-wave"></div>
+              <div className="signal-wave"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function LandingPage() {
   return (
     <>
       <Hero />
       <GamesSection />
+      <AccessibilitySection />
+      <TechnologySection />
     </>
   );
 }
