@@ -150,22 +150,52 @@ body {
 /* Hero section */
 .hero {
   display: flex;
+  position: relative;
   height: 52vh;
+  background: url("./assets/eeg.png");
   /* background: rgba(24, 24, 24, 0.4); */
   justify-content: center;
   align-items: center;
 }
 
-.hero .placeholder {
+
+.hero-overlay {
+  /* background: rgba(0, 0, 0, 0.5);  */
+  padding: 2rem 4rem;
+  border-radius: 16px;
+  text-align: center;
+  color: white;
+  max-width: 600px;
+}
+
+
+
+
+/* .hero .placeholder {
   width: 75%;
   height: 75%;
-  /* background: rgba(24, 24, 24, 0.4);  */
+  background: rgba(24, 24, 24, 0.4); 
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
   color: #999;
+} */
+
+
+.cta-button {
+  background: var(--accent);
+  color: #000;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.cta-button:hover {
+  background: #00e5c0;
 }
 
 /* Games section */
@@ -181,39 +211,41 @@ body {
 
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* display: flex;
+  flex-wrap:wrap; */
   gap: 2rem;
+  justify-content: center;
   margin: 0 auto;
   max-width: 1000px;
 }
-
 .game-card {
-  background: var(--card);
+  flex: 0 1 250px; /* size each card */
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  transition: transform 0.2s;
-  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-align: center;
 }
 
 .game-card:hover {
-  transform: translateY(-4px);
-  background: var(--hover);
+  transform: translateY(-5px);
+  /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); */
+  box-shadow: 0 0 20px 4px rgba(0, 170, 138, 0.6);
 }
 
 .game-thumbnail {
-  height: 160px;
-  background: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #aaa;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
 }
 
 .game-thumbnail-title {
-  padding: 1rem;
-  font-size: 1.1rem;
-  font-weight: 600;
+  padding: 12px;
+  font-size: 1.2rem;
+  color: #eee;
+  text-transform: capitalize
 }
 
 /* Make game card links look like normal cards, not links */

@@ -65,22 +65,27 @@ function Navbar() {
 function Hero() {
   return (
     <section className="hero">
-      <div className="placeholder">Hero Section Placeholder</div>
+      <div className="hero-overlay">
+        <h1>BlinkLet</h1>
+        <p>Harness EEG signals for blinks and eye movements to control technology hands-free. Empowering new forms of interaction, accessibility, and play.</p>
+        <Link to="/snake" className="cta-button">Play Now</Link>
+      </div>
     </section>
+
   );
 }
 
 function GamesSection() {
   const games = [
-    { title: "game 1", path: "/games/Game1" },
-    { title: "game 2", path: "/games/Game2" },
-    { title: "game 3", path: "/games/Game3" },
-    { title: "game 4", path: "/games/Game4" },
-    { title: "Snake", path: "/snake" },
-    { title: "Flappy Bird", path: "/flappy" },
-    { title: "Dino", path: "/dino" },
-    { title: "Breakout", path: "/breakout" },
-    { title: "Pong", path: "/pong" },
+    // { title: "game 1", path: "/games/Game1", image: "/images/Pong.png" },
+    // { title: "game 2", path: "/games/Game2" },
+    // { title: "game 3", path: "/games/Game3" },
+    // { title: "game 4", path: "/games/Game4" },
+    { title: "Snake", path: "/snake", image: "/images/SnakeGame.webp" },
+    { title: "Flappy Bird", path: "/flappy", image: "/images/FlappyBird.jpg" },
+    { title: "Dino", path: "/dino", image: "/images/Dino.jpg"  },
+    { title: "Breakout", path: "/breakout", image: "/images/Breakout.jpg" },
+    { title: "Pong", path: "/pong", image: "/images/Pong.png" },
   ];
 
   return (
@@ -93,7 +98,11 @@ function GamesSection() {
             className="game-card-link"
           >
             <div className="game-card">
-              <div className="game-thumbnail">Thumbnail</div>
+              <img 
+                src={game.image} 
+                alt={game.title} 
+                className="game-thumbnail" 
+              />
               <div className="game-thumbnail-title">{game.title}</div>
             </div>
           </Link>
@@ -129,6 +138,7 @@ export default function App() {
             <Route path="/breakout" element={<Breakout />} />
             <Route path="/pong" element={<Pong />} />
             <Route path="/snake" element={<Snake />} />
+            <Route path="/login" element={<LoginPage />} />
           </Routes>
       </div>
     </div>
