@@ -4,9 +4,8 @@ import SnakeGame from "/src/components/snakeGame";
 
 export default function Snake() {
   return (
-    <div>
-      <h2>Snake</h2>
+    <GameTemplate title="Snake">
       <SnakeGame />
-    </div>
+    </GameTemplate>
   );
 }
