@@ -85,6 +85,13 @@ body {
   background-clip: text;
 }
 
+.username-display {
+  color: white;
+  font-weight: 500;
+  margin-right: 15px;
+}
+
+
 .logo-link {
   text-decoration: none;
   color: var(--text);

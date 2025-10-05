@@ -7,6 +7,10 @@ import "./index.css";
 // import Game2 from "./pages/Game2";
 // import Game3 from "./pages/Game3";
 // import Game4 from "./pages/Game4";
+import { useEffect, useState } from "react";
+import { supabase } from "./lib/supabase";
+import { getUsernameForUser } from "./lib/auth";
+
 import Snake from "./pages/Snake";
 import FlappyBird from "./pages/FlappyBird";
 import Dino from "./pages/Dino";
@@ -20,6 +24,33 @@ import Technology from "./pages/Technology";
 import GradientCursor from "./components/GradientCursor";
 
 function Navbar() {
+  const [user, setUser] = useState(null);
+const [username, setUsername] = useState("");
+
+useEffect(() => {
+  async function fetchUser() {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      setUser(user);
+      const name = await getUsernameForUser(user.id);
+      setUsername(name);
+    }
+  }
+  fetchUser();
+
+  const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+    if (session?.user) {
+      setUser(session.user);
+      getUsernameForUser(session.user.id).then(setUsername);
+    } else {
+      setUser(null);
+      setUsername("");
+    }
+  });
+
+  return () => listener.subscription.unsubscribe();
+}, []);
+
   return (
     <nav className="navbar">
       <div className="logo">
@@ -60,9 +91,14 @@ function Navbar() {
 
       </div>
       
-      <div className="auth-link">
-            <Link to="/login" className="login-button">Login</Link>
-      </div>
+<div className="auth-link">
+  {user ? (
+    <span className="username-display">Hi {username || "Player"} 👋</span>
+  ) : (
+    <Link to="/login" className="login-button">Login</Link>
+  )}
+</div>
+
     </nav>
   );
 }
