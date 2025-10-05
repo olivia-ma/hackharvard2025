@@ -14,9 +14,9 @@ function SnakeGame() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    const gridSize = 50;
-    const tileCount = 50;
-    let snake = [{ x: 10, y: 10 }];
+    const gridSize = 20;
+    const tileCount = 20;
+    let snake = [{ x: 10, y: 0 }];
     let apple = { x: 15, y: 15 };
     let score = 0;
 
