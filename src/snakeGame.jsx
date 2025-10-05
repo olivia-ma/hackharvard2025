@@ -92,7 +92,7 @@ function SnakeGame() {
         backgroundColor: "#000" // optional: to match your border
       }}
     >
-      <h2 style={{ color: "white" }}>Snake Game</h2>
+      {/* <h2 style={{ color: "white" }}>Snake Game</h2> */}
       <canvas
         ref={canvasRef}
         width="400"

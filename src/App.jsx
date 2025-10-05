@@ -7,8 +7,9 @@ import Game1 from "./pages/Game1";
 import Game2 from "./pages/Game2";
 import Game3 from "./pages/Game3";
 import Game4 from "./pages/Game4";
+import Snake from "./pages/Snake";
 import LoginPage from "./pages/LoginPage";
-import SnakeGame from "./snakeGame";
+// import SnakeGame from "./snakeGame";
 
 import GradientCursor from "./components/GradientCursor";
 
@@ -138,6 +139,7 @@ export default function App() {
             <Route path="/breakout" element={<Breakout />} />
             <Route path="/pong" element={<Pong />} />
             <Route path="/snake" element={<Snake />} />
+            
             <Route path="/login" element={<LoginPage />} />
           </Routes>
       </div>
@@ -146,14 +148,14 @@ export default function App() {
   );
 }
 
-function Snake() {
-  return ( 
-    <div>
-      <h2>Snake</h2>
-      <SnakeGame />
-    </div>
-  );
-}
+// function Snake() {
+//   return ( 
+//     <div>
+//       <h2>Snake</h2>
+//       <SnakeGame />
+//     </div>
+//   );
+// }
 
 function Flappy() {
   return (
