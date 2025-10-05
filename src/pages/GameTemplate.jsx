@@ -49,7 +49,7 @@ export default function GameTemplate({ title, iframeSrc, iframeHeight = 600, chi
   }, [listeningIndex, bindings]);
 
   return (
-    <div className="game-page">
+    <div className="game-page" style={{ overflow: "hidden", height: "80vh", width: "95%" }}>
       <div className="game-header">
         <h1 className="game-title">{title}</h1>
         <button className="keybind-toggle" onClick={() => setShowBindings(!showBindings)}>
@@ -57,9 +57,9 @@ export default function GameTemplate({ title, iframeSrc, iframeHeight = 600, chi
         </button>
       </div>
 
-      <div className={`game-container ${showBindings ? "with-panel" : ""}`}>
-        <div className="game-view">
-          <div className="game-placeholder">
+      <div className={`game-container ${showBindings ? "with-panel" : ""}`} style={{ overflow: "hidden", height: "calc(100vh - 100px)" }}>
+        <div className="game-view" style={{ height: "100%" }}>
+          <div className="game-placeholder" style={{ height: "100%" }}>
             {children ? (
               children
             ) : (
@@ -67,7 +67,8 @@ export default function GameTemplate({ title, iframeSrc, iframeHeight = 600, chi
                     src={iframeSrc}
                     title={title}
                     className="game-iframe"
-                    
+                    scrolling="no"
+                    style={{ width: "100%", height: "100%", border: "none", overflow: "hidden" }}
                 />
             )}
           </div>
