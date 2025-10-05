@@ -161,16 +161,16 @@ function Flappy() {
 }
 
 function Dino() {
-  return ( 
-    <div>
+  return (
+    <div style={{ textAlign: "center" }}>
       <h2>Play Dino</h2>
       <iframe
-        src="/t-rex-runner/index.html"
-        width="1200"
-        height="500"
+        src="https://r1w125.github.io/t-rex-runner/" // your GitHub Pages URL
+        width="100%"
+        height="600"
         style={{ border: "none" }}
-        title="Dino Runner"
-      ></iframe>
+        title="Dino Game"
+      />
     </div>
   );
 }
