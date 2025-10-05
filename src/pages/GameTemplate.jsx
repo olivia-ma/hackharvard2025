@@ -63,13 +63,12 @@ export default function GameTemplate({ title, iframeSrc, iframeHeight = 600, chi
             {children ? (
               children
             ) : (
-              <iframe
-                src={iframeSrc}
-                width="100%"
-                height={iframeHeight}
-                style={{ border: "none" }}
-                title={title}
-              />
+                <iframe
+                    src={iframeSrc}
+                    title={title}
+                    className="game-iframe"
+                    
+                />
             )}
           </div>
         </div>

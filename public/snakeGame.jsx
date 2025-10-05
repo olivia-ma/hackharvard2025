@@ -88,7 +88,7 @@ function SnakeGame() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "60vh", // centers vertically in the viewport
+        minHeight: "30vh", // centers vertically in the viewport
         backgroundColor: "#000" // optional: to match your border
       }}
     >
