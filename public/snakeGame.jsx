@@ -1,9 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function SnakeGame() {
   const canvasRef = useRef(null);
+  const [gameStarted, setGameStarted] = useState(false); // track if game is running
+  const intervalRef = useRef(null); // store interval ID
 
   useEffect(() => {
+    if (!gameStarted) return; // only run the game loop if started
+
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
@@ -13,7 +17,7 @@ function SnakeGame() {
     let apple = { x: 15, y: 15 };
     let score = 0;
 
-    let dx = 1; // start moving right
+    let dx = 1;
     let dy = 0;
 
     function gameLoop() {
@@ -36,18 +40,32 @@ function SnakeGame() {
 
     function checkCollisions() {
       const head = snake[0];
-      if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) resetGame();
+
+      // If hits walls
+      if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
+        endGame();
+      }
+
+      // If hits itself
       for (let i = 1; i < snake.length; i++) {
-        if (head.x === snake[i].x && head.y === snake[i].y) resetGame();
+        if (head.x === snake[i].x && head.y === snake[i].y) {
+          endGame();
+        }
       }
     }
 
     function drawGame() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw snake
       ctx.fillStyle = "green";
       for (const segment of snake) ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
+
+      // Draw apple
       ctx.fillStyle = "red";
       ctx.fillRect(apple.x * gridSize, apple.y * gridSize, gridSize, gridSize);
+
+      // Draw score
       ctx.fillStyle = "white";
       ctx.fillText("Score: " + score, 10, 10);
     }
@@ -68,18 +86,31 @@ function SnakeGame() {
     }
 
     function handleKeyDown(e) {
-      if (e.key === "ArrowLeft") [dx, dy] = [-dy, dx];   // rotate left
-      if (e.key === "ArrowRight") [dx, dy] = [dy, -dx]; // rotate right
+      if (e.key === "ArrowLeft") [dx, dy] = [-dy, dx];
+      if (e.key === "ArrowRight") [dx, dy] = [dy, -dx];
+    }
+
+    // When the game ends
+    function endGame() {
+      clearInterval(intervalRef.current); // stop the game loop
+      intervalRef.current = null;
+      setGameStarted(false); // show Start Game button again
+      resetGame(); // reset snake and score
     }
 
     document.addEventListener("keydown", handleKeyDown);
-    const interval = setInterval(gameLoop, 100);
+    intervalRef.current = setInterval(gameLoop, 100);
 
     return () => {
-      clearInterval(interval);
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [gameStarted]);
+
+  const startGame = () => {
+    setGameStarted(true);
+  };
 
   return (
     <div
@@ -88,11 +119,18 @@ function SnakeGame() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "30vh", // centers vertically in the viewport
-        backgroundColor: "#000" // optional: to match your border
+        minHeight: "60vh",
+        backgroundColor: "#000",
       }}
     >
-      {/* <h2 style={{ color: "white" }}>Snake Game</h2> */}
+      {!gameStarted && (
+        <button
+          onClick={startGame}
+          style={{ marginBottom: "20px", padding: "10px 20px", fontSize: "16px" }}
+        >
+          Start Game
+        </button>
+      )}
       <canvas
         ref={canvasRef}
         width="400"
