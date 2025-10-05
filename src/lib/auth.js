@@ -34,3 +34,9 @@ export async function getCurrentUser() {
   const { data: { user } } = await supabase.auth.getUser()
   return user
 }
+
+export async function getUsername() {
+  const user = await getCurrentUser();
+  if (!user) return null;
+  return await getUsernameForUser(user.id);
+}
