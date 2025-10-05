@@ -1,6 +1,6 @@
 import React from "react";
 import GameTemplate from "./GameTemplate";
-import SnakeGame from "../snakeGame";
+import SnakeGame from "/public/snakeGame";
 
 export default function Snake() {
   return (
